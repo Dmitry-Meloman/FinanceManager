@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+  <class>AddTransactionDialog</class>
+  <widget class="QDialog" name="AddTransactionDialog">
+    <property name="geometry">
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>400</width>
+        <height>250</height>
+      </rect>
+    </property>
+    <property name="windowTitle">
+      <string>Добавить транзакцию</string>
+    </property>
+
+    <layout class="QVBoxLayout" name="verticalLayout">
+
+      <!-- Поле для суммы -->
+      <layout class="QHBoxLayout">
+        <widget class="QLabel" name="labelSum">
+          <property name="text">
+            <string>Сумма:</string>
+          </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="amountSpin">
+          <property name="minimum">
+            <double>0.01</double>
+          </property>
+          <property name="maximum">
+            <double>1000000.00</double>
+          </property>
+          <property name="prefix">
+            <string>₽ </string>
+          </property>
+        </widget>
+      </layout>
+
+      <!-- Выбор категории -->
+      <layout class="QHBoxLayout">
+        <widget class="QLabel" name="labelCategory">
+          <property name="text">
+            <string>Категория:</string>
+          </property>
+        </widget>
+        <widget class="QComboBox" name="categoryCombo"/>
+      </layout>
+
+      <!-- Выбор даты -->
+      <layout class="QHBoxLayout">
+        <widget class="QLabel" name="labelDate">
+          <property name="text">
+            <string>Дата:</string>
+          </property>
+        </widget>
+        <widget class="QDateEdit" name="dateEdit">
+          <property name="calendarPopup">
+            <bool>true</bool>
+          </property>
+        </widget>
+      </layout>
+
+      <!-- Описание -->
+      <layout class="QHBoxLayout">
+        <widget class="QLabel" name="labelDesc">
+          <property name="text">
+            <string>Описание:</string>
+          </property>
+        </widget>
+        <widget class="QLineEdit" name="descriptionEdit"/>
+      </layout>
+
+      <!-- Кнопки OK/Cancel -->
+      <widget class="QDialogButtonBox" name="buttonBox">
+        <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="standardButtons">
+          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+        </property>
+      </widget>
+    </layout>
+  </widget>
+
+  <resources/>
+  <connections>
+    <connection>
+      <sender>buttonBox</sender>
+      <signal>accepted()</signal>
+      <receiver>AddTransactionDialog</receiver>
+      <slot>accept()</slot>
+    </connection>
+    <connection>
+      <sender>buttonBox</sender>
+      <signal>rejected()</signal>
+      <receiver>AddTransactionDialog</receiver>
+      <slot>reject()</slot>
+    </connection>
+  </connections>
+</ui>

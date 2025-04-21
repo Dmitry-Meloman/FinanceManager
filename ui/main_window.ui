@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+  <class>MainWindow</class>
+  <widget class="QMainWindow" name="MainWindow">
+    <property name="geometry">
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>800</width>
+        <height>600</height>
+      </rect>
+    </property>
+    <property name="windowTitle">
+      <string>Учет финансов</string>
+    </property>
+
+    <!-- Центральный виджет -->
+    <widget class="QWidget" name="centralwidget">
+      <layout class="QVBoxLayout" name="verticalLayout">
+
+        <!-- Панель управления -->
+        <layout class="QHBoxLayout" name="controlsLayout">
+          <item>
+            <widget class="QPushButton" name="addButton">
+              <property name="text">
+                <string>Добавить</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="deleteButton">
+              <property name="text">
+                <string>Удалить</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="refreshButton">
+              <property name="text">
+                <string>Обновить</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <spacer name="horizontalSpacer">
+              <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+                <size>
+                  <width>40</width>
+                  <height>20</height>
+                </size>
+              </property>
+            </spacer>
+          </item>
+        </layout>
+
+        <!-- Таблица транзакций -->
+        <widget class="QTableWidget" name="tableWidget">
+          <property name="columnCount">
+            <number>4</number>
+          </property>
+          <property name="horizontalHeaderLabels">
+            <stringlist>
+              <string>Дата</string>
+              <string>Категория</string>
+              <string>Сумма</string>
+              <string>Описание</string>
+            </stringlist>
+          </property>
+          <property name="selectionBehavior">
+            <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+        </widget>
+
+        <!-- График статистики -->
+        <widget class="QWidget" name="chartWidget" native="true">
+          <property name="minimumSize">
+            <size>
+              <width>0</width>
+              <height>200</height>
+            </size>
+          </property>
+        </widget>
+      </layout>
+    </widget>
+
+    <!-- Статус бар -->
+    <widget class="QStatusBar" name="statusbar"/>
+
+    <!-- Меню -->
+    <widget class="QMenuBar" name="menubar">
+      <widget class="QMenu" name="menuFile">
+        <property name="title">
+          <string>Файл</string>
+        </property>
+        <addaction name="actionExit"/>
+      </widget>
+      <action name="actionExit">
+        <property name="text">
+          <string>Выход</string>
+        </property>
+      </action>
+    </widget>
+  </widget>
+
+  <!-- Ресурсы (иконки) -->
+  <resources/>
+  <connections/>
+</ui>
